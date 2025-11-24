@@ -1,0 +1,75 @@
+version: 1
+timezone: America/Chicago
+charter:
+  name: Activ8 AI - Master Charter
+  supremacy: true
+  governance_contact: governance@activ8.ai
+  stop_reset_realign:
+    enabled: true
+    trigger_phrase: STOP-RESET-REALIGN
+    escalation_channel: governance-mcp
+traceability:
+  genesis_id: GENESIS-ACTIV8-MAOS
+  run_prefix: MAOS
+  evidence_stores: [slack, notion, teamwork, ledger]
+paths:
+  core_root: /workspace/MAOS_Activation_Stack_v1
+  memory_sql_store: memory/sql_store
+  memory_vector_store: memory/vector_store
+  custody_ledger: custody/ledger.db
+  telemetry_engine: telemetry/telemetry_engine.py
+  autonomy_kernel: autonomy/start_autonomy_loop.py
+activation_sequence:
+  - verify_core_pack
+  - install_dependencies
+  - load_secrets
+  - start_mcp
+  - emit_heartbeat
+  - activate_agents
+  - start_autonomy_loop
+  - seal_mvp_v0
+telemetry:
+  drift_thresholds:
+    green_max: 10
+    yellow_max: 30
+    red_max: 100
+  signals: [heartbeat, load, drift, governance_compliance, seal_alignment, ledger_health]
+  routes:
+    slack: governance-telemetry
+    notion: activations-ledger
+    teamwork: maos-evidence-room
+autonomy:
+  dual_agent_backup: true
+  loop_interval_seconds: 5
+  max_retries: 3
+ledger:
+  schema:
+    - id: INTEGER PRIMARY KEY AUTOINCREMENT
+    - timestamp: TEXT
+    - event_type: TEXT
+    - actor_identity: TEXT
+    - payload: TEXT
+    - correlation_id: TEXT
+    - seal_version: TEXT
+    - environment: TEXT
+governance:
+  role_ids:
+    - GOV-CUSTODIAN
+    - GOV-AUDITOR
+    - OPS-LEAD
+  drift_violation_halts_autonomy: true
+  seal_checkpoint_required: true
+  charter_guardrail_required: true
+agents:
+  - id: sentinel
+    role: governance
+    tier: primary
+  - id: forge
+    role: build
+    tier: backup
+  - id: lumen
+    role: telemetry
+    tier: observer
+client_intelligence:
+  matrix_source: Master Client Operational Matrix
+  tracked_fields: [kpi, revenue, authority, heartbeat, deliverables, risks, governance_state]
