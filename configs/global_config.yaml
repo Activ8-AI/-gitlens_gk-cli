@@ -1,0 +1,11 @@
+environment: development
+notion:
+  database_id: stub-db
+  secret_key: NOTION_SECRET
+telemetry:
+  heartbeat_interval_seconds: 5
+mcp:
+  host: 0.0.0.0
+  port: 8000
+custody:
+  ledger_path: custody/ledger.db
