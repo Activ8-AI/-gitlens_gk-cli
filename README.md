@@ -6,6 +6,70 @@ GitKraken CLI is available on macOS, Windows, and Unix systems.
 
 ![](./images/cli-header-wide.png)
 
+## 🧭 MAOS v1 Governance (Activ8-AI Fork)
+
+This fork operates under MAOS v1 (Modular Automation Operating System) governance framework, which establishes:
+
+- **Tier 3 Repository Classification**: Full governance controls with automated agent workflows
+- **Charter Compliance**: All changes must align with Charter Standards for security, modularity, and provider-agnostic design
+- **Fail-Closed Enforcement**: Required governance checks must pass before merge
+- **Human Authority**: All merges require explicit human approval
+- **Audit Trail**: Comprehensive logging and compliance tracking
+
+### Fork-Specific Governance
+
+This is an Activ8-AI maintained fork of [GitKraken CLI](https://github.com/gitkraken/gk-cli).
+
+**Upstream Synchronization**:
+- Regular syncs with upstream GitKraken repository
+- Activ8-AI specific modifications tracked separately
+- Governance requirements apply to Activ8-AI changes only
+
+**Contribution Guidelines**:
+- Upstream contributions should be made to the original GitKraken repository
+- Activ8-AI specific features require governance approval
+- See main repository [Activ8-AI/mcp](https://github.com/Activ8-AI/mcp) for governance details
+
+For complete governance documentation, see:
+- **Main Repository**: [Activ8-AI/mcp](https://github.com/Activ8-AI/mcp) - Primary governance standards
+- **Upstream**: [gitkraken/gk-cli](https://github.com/gitkraken/gk-cli) - Original project
+- **Documentation**: [GitKraken CLI Help](https://help.gitkraken.com/cli/gk-cli-mcp/) - Official documentation
+- **GitKraken**: [gitkraken.com](https://www.gitkraken.com/) - Git GUI and tools
+
+### High-Risk Powers
+
+This Git CLI and MCP server has specific governance requirements:
+
+- **Git Repository Access**: Full git operations across multiple repositories
+- **GitHub Integration**: Direct access to GitHub APIs and repositories
+- **Jira Integration**: Connection to Jira for issue management
+- **MCP Server**: Model Context Protocol server for AI agent git operations
+- **AI-Powered Commits**: LLM-generated commit messages
+- **Pull Request Creation**: Automated PR generation with AI
+- **Multi-Repo Operations**: Work items spanning multiple repositories
+- **Authentication Tokens**: GitHub, Jira, and GitKraken platform credentials
+- **Branch Management**: Create, merge, and delete branches
+- **Code Modifications**: AI agent access to modify repository code
+
+All high-risk operations are:
+- Gated behind required human approval
+- Logged for audit compliance
+- Subject to automated security scanning
+- Governed by principle of least privilege
+- Require secure credential management
+
+### Security Notes
+
+- **Git Credentials**: Never commit GitKraken, GitHub, or Jira tokens
+- **Repository Access**: Limit CLI access to required repositories only
+- **MCP Security**: Secure MCP server endpoints and authentication
+- **AI Commit Messages**: Review AI-generated commits before pushing
+- **PR Generation**: Validate AI-generated pull requests before creation
+- **Multi-Repo Safety**: Be cautious with operations affecting multiple repos
+- **Token Management**: Use secure credential storage for all API tokens
+- **Agent Boundaries**: Define clear operational limits for AI agents
+- **Audit Trail**: Enable comprehensive logging for all git operations
+
 ## Table of Contents
 
 - [MCP Server](#mcp-server)
