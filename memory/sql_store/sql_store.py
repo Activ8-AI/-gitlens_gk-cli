@@ -1,5 +1,6 @@
 import sqlite3
-import os
+import datetime
+import json
 
 DB_PATH = "custody/custodian_ledger.db"
 
@@ -19,9 +20,11 @@ def write_record(event_type, payload):
     """)
     conn.commit()
 
+    timestamp = datetime.datetime.now().isoformat()
+    payload_json = json.dumps(payload, ensure_ascii=False, default=str)
     cursor.execute(
         "INSERT INTO ledger (timestamp, event_type, payload) VALUES (?, ?, ?)",
-        (os.popen("date").read().strip(), event_type, str(payload)),
+        (timestamp, event_type, payload_json),
     )
     conn.commit()
     conn.close()

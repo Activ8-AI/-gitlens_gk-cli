@@ -1,4 +1,5 @@
 import os
+import shlex
 import requests
 from custody.custodian_ledger import log_event
 
@@ -21,4 +22,6 @@ def load_secrets():
     return secrets
 
 if __name__ == "__main__":
-    load_secrets()
+    secrets = load_secrets()
+    for k, v in secrets.items():
+        print(f"export {k}={shlex.quote(str(v))}")
